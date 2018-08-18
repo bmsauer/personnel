@@ -15,6 +15,24 @@ function save(){
 	localStorage.teams = JSON.stringify(teams);
     }
 }
+
+function reset_teams(){
+    var ok = confirm("Reset teams to default?");
+    if(ok === true){
+	teams = teams_reset;
+	save();
+	change_team(current_team);
+    }
+}
+
+function reset_players(){
+    var ok = confirm("Reset players to default?");
+    if(ok === true){
+	players = players_reset;
+	save();
+	change_team(current_team);
+    }
+}
     
 
 function validate(current_team){
@@ -36,15 +54,19 @@ function validate(current_team){
 	var selectbox_player = $(this).val();
 	if(!selectbox_player){
 	    $(this).css("background-color", "white");
+	    $(this).css("border", "none");
 	}
 	else if(duplicates.indexOf(selectbox_player) >= 0){ //duplicate
 	    $(this).css("background-color", "yellow");
+	    $(this).css("border", "2px solid yellow");
 	}
 	else if(players[selectbox_player]["status"] == "NOT OK"){
 	    $(this).css("background-color", "red");
+	    $(this).css("border", "2px solid red");
 	}
 	else {
 	    $(this).css("background-color", "white");
+	    $(this).css("border", "none");
 	}
     });
 }
@@ -129,7 +151,7 @@ function generate_player_selectbox(team_name, position_name, player_name){
     return selectbox;
 }
     
-var teams = {
+var teams_reset = {
     "KOR": [
 	["LT",""],
 	["LG",""],
@@ -165,16 +187,17 @@ var teams = {
 	["RT",""],
 	["LW",""],
 	["RW",""],
-	["LG",""],
-	["RG",""],
+	["LGU",""],
+	["RGU",""],
 	["PP",""],
 	["P",""]
 	
     ],
 }
+var teams = teams_reset;
 	
     
-var players = {
+var players_reset = {
     "Baines" : {
 	"status": "OK",
 	"number": "1",
@@ -279,8 +302,60 @@ var players = {
 	"status": "OK",
 	"number": "1",
 	"type": "big speed",
+    },
+    "Tyler" : {
+	"status": "OK",
+	"number": "1",
+	"type": "speed",
+    },
+    "Snowden" : {
+	"status": "OK",
+	"number": "1",
+	"type": "speed",
+    },
+    "Dakotah" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big",
+    },
+    "Casey" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big",
+    },
+    "Kearns" : {
+	"status": "OK",
+	"number": "1",
+	"type": "speed",
+    },
+    "Ferg" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big speed",
+    },
+    "Harry" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big",
+    },
+    "D Rock" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big",
+    },
+    "Derrick" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big",
+    },
+    "Lanter" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big",
     }
+    
 }
+var players = players_reset;
 
 var current_team = "";
     
