@@ -352,8 +352,32 @@ var players_reset = {
 	"status": "OK",
 	"number": "1",
 	"type": "big",
+    },
+    "Brannon" : {
+	"status": "OK",
+	"number": "1",
+	"type": "kicker",
+    },
+    "Brady" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big speed",
+    },
+    "Delaney" : {
+	"status": "OK",
+	"number": "1",
+	"type": "kicker",
+    },
+    "PLACEHOLDER" : {
+	"status": "OK",
+	"number": "1",
+	"type": "big speed",
+    },
+    "Trevor": {
+	"status": "OK",
+	"number": "1",
+	"type": "big speed",
     }
-    
 }
 var players = players_reset;
 
